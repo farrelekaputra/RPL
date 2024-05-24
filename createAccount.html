@@ -15,11 +15,22 @@
         display: flex;
         flex-direction: column;
         margin: auto;
-        width: 416px;
+        width: 460px;
         height: auto;
         background-color:#6B6A6A;
         border-radius: 12px;
         box-shadow: 0px 0px 8px 4px rgba(255, 255, 255, 0.445);
+    }
+    .kiri{
+      justify-content: space-around;
+    }
+    .kanan{
+      justify-content: space-evenly;
+    }
+    .Selectprodi{
+      flex-direction: column;
+      justify-content: start;
+      margin-left: -100px;
     }
     img{
         display: flex;
@@ -41,14 +52,43 @@
         <img src="img/logo.svg" width="80%" alt="" class="logo mb-n3">
         <form>
             <label for="LoginForm" class="form-label text-light fw-bolder fs-3 mb-3">Buat Akun</label>
-            <div class="mb-3">
-              <label for="exampleInputNIM" class="form-label text-light fw-bolder">Masukan NIM</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <!-- form sebelah kiri -->
+            <div class="kiri d-flex">
+              <div class="mb-3">
+                  <!-- Input Nama -->
+                <label for="InputNama" class="form-label text-light fw-bolder">Masukan Nama</label>
+                <input type="email" class="form-control" id="InputNama" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <!-- Input NIM -->
+                <label for="InputNIM" class="form-label text-light fw-bolder">Masukan NIM</label>
+                <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+              </div>
             </div>
+            <!-- form sebelah kanan -->
+            <div class="kanan d-flex">
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label text-light fw-bolder">Masukan Password</label>
-              <input type="password" class="mb-4 form-control" id="exampleInputPassword1">
-            </div>
+                <!-- Input Password -->
+              <label for="InputPassword1" class="form-label text-light fw-bolder">Masukan Password</label>
+              <input type="password" class="mb-4 form-control" id="exampleInputPassword">
+              </div>
+                  <!-- Pilih Prodi -->
+              <div class="Selectprodi form-group d-flex mb-3 d-flex text-light fw-bolder">
+                <label for="Prodi">Masukkan Prodi</label>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Pilih Prodi
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><label for="">Lantai 1</label></li>
+                      <li><a class="dropdown-item" href="#">Teknik Elektro</a></li>
+                      <li><a class="dropdown-item" href="#">Teknik Komputer</a></li>
+                      <li><a class="dropdown-item" href="#">Pendidikan Teknik Elektro</a></li>
+                      <li><a class="dropdown-item" href="#">Pendidikan Teknik Informatika dan Komputer</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             <button type="submit" class="btn btn-primary fw-bolder">Buat Akun</button>
           </form>
           <label for="BuatAkun" class="createAccount mt-3 mx-auto text-light d-flex">Sudah Punya Akun?<p class="href text-primary fw-bolder"> Masuk</p> </label>
