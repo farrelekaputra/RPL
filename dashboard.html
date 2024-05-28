@@ -148,11 +148,13 @@
             margin: auto;
             border-radius: 8px;
         }
+        a{
+            text-decoration: none;
+        }
             @media only screen and (max-width: 1200px){
             .Sidebar{
                 background-color: #414141;
                 height: 100dvh;
-                width: 80px;
                 padding: 20px;
                 padding-right: 20px;
                 position: fixed;
@@ -307,38 +309,44 @@
                 </div>
             </div>
             <div class="features d-flex">
-                <div class="comment d-flex fs-5">
-                    <p>Komentar</p> 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                        <path fill="#35BEE6" d="M6 14h12v-2H6zm0-3h12V9H6zm0-3h12V6H6zm16 14l-4-4H4q-.825 0-1.412-.587T2 16V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4zM4 16h14.85L20 17.125V4H4zm0 0V4z" />
-                    </svg>
-                </div>
-                <div class="schedule d-flex fs-5">
-                    <p>Jadwal Book</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                        <path fill="#35BEE6" d="M12 12h5v5h-5zm7-9h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 2v2H5V5zM5 19V9h14v10z" />
-                    </svg>
-                </div>
-                <div class="contact d-flex fs-5">
-                    <p>Contact Person</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                        <path fill="#35BEE6" d="M21 8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1.062A8.001 8.001 0 0 1 12 23v-2a6 6 0 0 0 6-6V9A6 6 0 0 0 6 9v7H3a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1.062a8.001 8.001 0 0 1 15.876 0zM7.76 15.785l1.06-1.696A5.972 5.972 0 0 0 12 15a5.972 5.972 0 0 0 3.18-.911l1.06 1.696A7.963 7.963 0 0 1 12 17a7.962 7.962 0 0 1-4.24-1.215" />
-                    </svg>
-                </div>
+                <a href="#" id="komentar" style="text-decoration: none;">
+                    <div class="comment d-flex fs-5">
+                        <p>Komentar</p> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                            <path fill="#35BEE6" d="M6 14h12v-2H6zm0-3h12V9H6zm0-3h12V6H6zm16 14l-4-4H4q-.825 0-1.412-.587T2 16V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4zM4 16h14.85L20 17.125V4H4zm0 0V4z" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="Ketersediaan.html" style="text-decoration: none;">
+                    <div class="schedule d-flex fs-5">
+                        <p>Jadwal Book</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                            <path fill="#35BEE6" d="M12 12h5v5h-5zm7-9h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m0 2v2H5V5zM5 19V9h14v10z" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="contact.html" style="text-decoration: none;">
+                    <div class="contact d-flex fs-5">
+                        <p>Contact Person</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                            <path fill="#35BEE6" d="M21 8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1.062A8.001 8.001 0 0 1 12 23v-2a6 6 0 0 0 6-6V9A6 6 0 0 0 6 9v7H3a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1.062a8.001 8.001 0 0 1 15.876 0zM7.76 15.785l1.06-1.696A5.972 5.972 0 0 0 12 15a5.972 5.972 0 0 0 3.18-.911l1.06 1.696A7.963 7.963 0 0 1 12 17a7.962 7.962 0 0 1-4.24-1.215" />
+                        </svg>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="floor d-flex">
             <div class="floor1 d-flex" style="flex-direction: column;">
                 <label for="lantai1">Lantai 1</label>
-                <img src="img/lantai1.jpg" width="50%" alt="denahLantai1">
+                <img src="img/lantai1.jpg" width="66%" alt="denahLantai1">
             </div>
             <div class="floor2 d-flex" style="flex-direction: column;">
                 <label for="lantai1">Lantai 2</label>
-                <img src="img/lantai2.jpg" width="50%" alt="denahLantai1">
+                <img src="img/lantai2.jpg" width="66%" alt="denahLantai1">
             </div>
             <div class="floor3 d-flex" style="flex-direction: column;">
                 <label for="lantai1">Lantai 3</label>
-                <img src="img/lantai3.jpg" width="50%" alt="denahLantai1">
+                <img src="img/lantai3.jpg" width="66%" alt="denahLantai1">
             </div>
         </div>
     </div>
@@ -371,5 +379,17 @@
         });
       </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var commentLink = document.getElementById("komentar");
+
+    commentLink.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        alert("Fitur ini masih dalam pengembangan");
+        });
+    });
+
+    </script>
 </body>
 </html>
