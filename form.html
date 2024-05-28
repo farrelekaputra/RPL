@@ -102,6 +102,15 @@
         .Date{
             margin-left: 5.4% ;
         }
+        select{
+            width: 100%;
+        }
+        .bg-light{
+            width: 100%;
+        }
+        .form-select label{
+            margin-left: 25% !important;
+        }
             @media only screen and (max-width: 1200px){
             .Sidebar{
                 background-color: #414141;
@@ -148,6 +157,13 @@
             }
             .form-select{
                 margin-left: 0%;
+            } 
+            select{
+                width: 42% !important;
+            }
+            .bg-light{
+                margin-left: -2%;
+                width: 75% !important;
             }
     }
     </style>
@@ -210,9 +226,7 @@
     <!-- container -->
     <div class="container d-flex p-2">
         <div class="content d-flex mt-3">
-            <center>
                 <label for="header"><h3>Form Peminjaman</h3></label>
-            </center>
             <form class="bg-light p-3">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Masukkan NIM</label>
@@ -225,7 +239,7 @@
                 </div>
                 
                 <div class="Selectroom form-group d-flex mt-3">
-                    <label for="ruang" >Pilih Ruangan</label>
+                    <label for="ruang">Pilih Ruangan</label>
                     <div class="dropdown">
                       <select class="form-select" aria-label="Default select example">
                         <option selected>Daftar Ruangan</option>
