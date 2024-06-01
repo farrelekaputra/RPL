@@ -23,14 +23,18 @@
     }
     .kiri{
       justify-content: space-around;
+      flex-direction: row;
     }
     .kanan{
       justify-content: space-evenly;
+      flex-direction: row;
+    }
+    .password{
+      width: 180%;
     }
     .Selectprodi{
       flex-direction: column;
       justify-content: start;
-      margin-left: -100px;
     }
     img{
         display: flex;
@@ -45,6 +49,17 @@
         color: white !important;
         cursor: pointer;
         transition: .3s;
+    }
+    @media only screen and (max-width: 1200px){
+      .kiri{
+        flex-direction: column;
+      }
+      .kanan{
+        flex-direction: column;
+      }
+      .password{
+        width: 100%;
+      }
     }
 </style>
 <body>
@@ -69,23 +84,22 @@
             <div class="kanan d-flex">
             <div class="mb-3">
                 <!-- Input Password -->
-              <label for="InputPassword1" class="form-label text-light fw-bolder">Masukan Password</label>
-              <input type="password" class="mb-4 form-control" id="exampleInputPassword">
+                <div class="password">
+                  <label for="InputPassword1" class="form-label text-light fw-bolder">Masukan Password</label>
+                  <input type="password" class="mb-4 form-control" id="exampleInputPassword">
+                </div>
               </div>
                   <!-- Pilih Prodi -->
-              <div class="Selectprodi form-group d-flex mb-3 d-flex text-light fw-bolder">
+              <div class="Selectprodi d-flex mb-3 d-flex text-light fw-bolder" style="margin-left: 25%;">
                 <label for="Prodi">Masukkan Prodi</label>
                   <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Pilih Prodi
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><label for="">Lantai 1</label></li>
-                      <li><a class="dropdown-item" href="#">Teknik Elektro</a></li>
-                      <li><a class="dropdown-item" href="#">Teknik Komputer</a></li>
-                      <li><a class="dropdown-item" href="#">Pendidikan Teknik Elektro</a></li>
-                      <li><a class="dropdown-item" href="#">Pendidikan Teknik Informatika dan Komputer</a></li>
-                    </ul>
+                    <select class="form-select" aria-label="Default select example" style="width: 60%;">
+                      <option selected>Pilih Prodi</option>
+                      <option label="">Teknik Elektro</option>
+                      <option label="">Teknik Koomputer</option>
+                      <option label="">Pendidikan Teknik Elektro</option>
+                      <option label="">Pendidikan Teknik Informatika dan Komputer</option>
+                    </select>
                   </div>
                 </div>
               </div>
