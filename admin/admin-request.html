@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: #E8E8E8;
+            display: flex;
+        }
+        .Sidebar{
+            background-color: #414141;
+            height: 100dvh;
+            padding: 20px;
+            padding-right: 20px;
+        }
+        .Sidebar ul li:hover{
+            border-radius: 6px;
+            border-right: 10px solid #35BEE7;
+            transition: .3s
+        }
+        .Sidebar ul li p:hover{
+            color: #35BEE7 !important;
+            font-weight: 700;
+            transition: .3s;
+        }
+        .Pending ul li p:hover{
+            padding-left: 1.6rem;
+            font-weight: 700;
+            transition: .3s;
+        }
+        .Sidebar ul li{
+            list-style: none;
+        }
+        .menu svg{
+            margin-left: -16px;
+        }
+        .Pending{
+            border-radius: 6px;
+            border-right: 10px solid #35BEE7;
+        }
+        .Pending p{
+            color: #35BEE7;
+            font-weight: 700;
+        }
+        .menu{
+            list-style: none;
+        }
+        .logo{
+            margin-left: -1rem;
+        }
+        .container{
+            width: 800px;
+            flex-direction:column;
+            background-color: #E8E8E8;
+            justify-content: start;
+        }
+        .navbar{
+            justify-content: space-around !important;
+            width: 80%;
+        }
+        input{
+            width: 680px;
+            height: 52px;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border: .5px rgb(212, 212, 212) solid ;
+            flex-wrap: nowrap;
+        }
+        .Button{
+            width: 46px;
+            height: 52px;
+            margin-left: -10px !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            margin-top: -5px !important;
+        }
+        .login{
+            width: 287px;
+            height: 52px;
+            gap: 20px;
+            justify-content: center;
+        }
+        .content{
+            justify-content: space-evenly;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            justify-items: center;
+        }
+            @media only screen and (max-width: 1200px){
+            .Sidebar{
+                background-color: #414141;
+                height: 110dvh;
+                padding: 20px;
+                padding-right: 20px;
+                position: fixed;
+                z-index: 999;
+            }
+            .container{
+                margin-left: 100px !important;
+            }
+            .navbar input{
+                width: 120px;
+                height: 42px;
+            }
+            .navbar .Button{
+                height: 42px;
+            }
+            .navbar{
+                margin-left: -34px;
+                gap: 40px;
+            }
+            .login{
+                width: 76px;
+                height: 42px;
+                margin-left: -100px;
+            }
+            .login p{
+                font-size: 0px !important;
+            }
+            .content{
+                flex-direction: column;
+            }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="background-color:#E8E8E8;">
+
+    <!-- sidebar -->
+    <div class="Sidebar d-flex flex-column flex-shrink-0 p-3">
+        <ul class="menu">
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M4 13c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0 4c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0-8c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1m0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1M7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1m-3 5c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0 4c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0-8c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1m0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1M7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1" />
+                </svg>
+            </li>
+        </ul>
+        <ul class="logo">
+            <li class="d-flex"><img src="../img/logo1.png" width="32px" alt=""><p class="fw-bolder fs-5 text-light gap-2">SEPARO</p></li>
+        </ul>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="List">
+                <a href="admin-akun.html" class="Home nav-link mb-1 mt-2" style="display: flex;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+                        <path fill="#fff" d="M152 80a12 12 0 0 1 12-12h80a12 12 0 0 1 0 24h-80a12 12 0 0 1-12-12m92 36h-80a12 12 0 0 0 0 24h80a12 12 0 0 0 0-24m0 48h-56a12 12 0 0 0 0 24h56a12 12 0 0 0 0-24m-88.38 25a12 12 0 1 1-23.24 6c-5.72-22.23-28.24-39-52.38-39s-46.66 16.76-52.38 39a12 12 0 1 1-23.24-6c5.38-20.9 20.09-38.16 39.11-48a52 52 0 1 1 73 0c19.04 9.85 33.75 27.11 39.13 48M80 132a28 28 0 1 0-28-28a28 28 0 0 0 28 28" />
+                    </svg>
+                    <p style="color: #fff; margin-left: 6px;">List Mahasiswa</p>
+                </a>
+            </li>
+        <li class="Pending">
+            <a href="admin-request.html" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#35BEE7" d="M10.63 14.1a7 7 0 0 1 9.27-3.47a7 7 0 0 1 3.47 9.27A6.98 6.98 0 0 1 17 24c-2.7 0-5.17-1.56-6.33-4H1v-2c.06-1.14.84-2.07 2.34-2.82S6.72 14.04 9 14c.57 0 1.11.05 1.63.1M9 4c1.12.03 2.06.42 2.81 1.17S12.93 6.86 12.93 8s-.37 2.08-1.12 2.83s-1.69 1.12-2.81 1.12s-2.06-.37-2.81-1.12S5.07 9.14 5.07 8s.37-2.08 1.12-2.83S7.88 4.03 9 4m8 18a5 5 0 0 0 5-5a5 5 0 0 0-5-5a5 5 0 0 0-5 5a5 5 0 0 0 5 5m-1-8h1.5v2.82l2.44 1.41l-.75 1.3L16 17.69z" />
+                </svg>
+            <p style="color: #35BEE7; margin-left: 6px;" class="fs-5">Request akun</p>
+            </a>
+        </li>
+        <li class="Ruang-Terpinjam">
+            <a href="admin-ruang-terpinjam.html" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#ffffff" d="M19 19V4h-4V3H5v16H3v2h12V6h2v15h4v-2zm-6 0H7V5h6zm-3-8h2v2h-2z" />
+                </svg>
+            <p style="color: #fff;  margin-left: 6px;">Ruangan terpinjam</p>
+            </a>
+        </li>
+        <li class="Pending-Ruangan">
+            <a href="admin-ruang-request.html" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+                    <path fill="#ffffff" d="M128 20a108 108 0 1 0 108 108A108.12 108.12 0 0 0 128 20m0 192a84 84 0 1 1 84-84a84.09 84.09 0 0 1-84 84m68-84a12 12 0 0 1-12 12h-56a12 12 0 0 1-12-12V72a12 12 0 0 1 24 0v44h44a12 12 0 0 1 12 12" />
+                </svg>
+            <p style="color: #fff; margin-left: 6px;">Request ruangan</p>
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <!-- container -->
+    <div class="container d-flex p-2">
+        <div class="content d-flex mt-3 p-4">
+            <header><h3>Persetujuan Akun</h3></header>
+                <table class="table table-hover">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col" style="width: 30%;">Nama</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Prodi</th>
+                        <th scope="col" class="justify-content-center">Persetujuan</th>
+                        
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Eelo</td>
+                        <td>5302422020</td>
+                        <td>Teknik Komputer</td>
+                        <td class="d-flex">
+                            <button type="button" class="btn btn-success d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#ffffff" d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
+                                    </g>
+                                </svg>
+                                Setuju
+                            </button>
+                            |
+                            <button type="button" class="btn btn-danger  align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5" d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
+                                </svg>
+                                Tolak
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Lonn</td>
+                        <td>5302422045</td>
+                        <td>Pendidikan Teknik Infomatika dan Komputer</td>
+                        <td class="d-flex">
+                            <button type="button" class="btn btn-success d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#ffffff" d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
+                                    </g>
+                                </svg>
+                                 Setuju
+                            </button>
+                            |
+                            <button type="button" class="btn btn-danger d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5" d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
+                                </svg>
+                                Tolak
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Muss</td>
+                        <td>530243002</td>
+                        <td>Pendidikan Teknik Elektro</td>
+                        <td class="d-flex">
+                            <button type="button" class="btn btn-success d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#ffffff" d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
+                                    </g>
+                                </svg>
+                                Setuju
+                            </button>
+                            |
+                            <button type="button" class="btn btn-danger d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5" d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
+                                </svg>
+                                Tolak
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Berk</td>
+                        <td>530242831</td>
+                        <td>Teknik Elektro</td>
+                        <td class="d-flex">
+                            <button type="button" class="btn btn-success d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                        <path fill="#ffffff" d="M21.546 5.111a1.5 1.5 0 0 1 0 2.121L10.303 18.475a1.6 1.6 0 0 1-2.263 0L2.454 12.89a1.5 1.5 0 1 1 2.121-2.121l4.596 4.596L19.424 5.111a1.5 1.5 0 0 1 2.122 0" />
+                                    </g>
+                                </svg>
+                                Setuju
+                            </button>
+                            |
+                            <button type="button" class="btn btn-danger d-flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5" d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" />
+                                </svg>
+                                Tolak
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var menuButton = document.querySelector(".menu");
+      
+          var sidebar = document.querySelector(".Sidebar");
+      
+          menuButton.addEventListener("click", function() {
+            var isSidebarCollapsed = sidebar.style.width === "80px";
+      
+            if (isSidebarCollapsed) {
+              sidebar.style.width = "250px";
+              var sidebarLinks = sidebar.querySelectorAll("p");
+              sidebarLinks.forEach(function(link) {
+                link.style.display = "block";
+              });
+            } 
+            else {
+              sidebar.style.width = "80px";
+              var sidebarLinks = sidebar.querySelectorAll("p");
+              sidebarLinks.forEach(function(link) {
+                link.style.display = "none";
+              });
+            }
+          });
+      
+          sidebar.style.transition = "width 0.3s";
+        });
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
