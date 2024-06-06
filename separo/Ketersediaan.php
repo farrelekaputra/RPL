@@ -1,0 +1,356 @@
+<?php
+ include  ('php/konek.php');
+ include ('php/session.php');
+ if (isset($_SESSION['nim_akun'])) {
+    $nim = @$_SESSION['nim_akun'];
+  } else {
+    // Handle the case where the 'nim' index is not set
+    echo "Error: nim not found in session";
+    exit; 
+  }
+
+$pesan='';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: #E8E8E8;
+            display: flex;
+        }
+        .Sidebar{
+            background-color: #414141;
+            height: 100dvh;
+            padding: 20px;
+            padding-right: 20px;
+        }
+        .Sidebar ul li:hover{
+            border-radius: 6px;
+            border-right: 10px solid #35BEE7;
+            transition: .3s
+        }
+        .Sidebar ul li p:hover{
+            color: #35BEE7 !important;
+            font-weight: 700;
+            transition: .3s;
+        }
+        .ketersediaan ul li p:hover{
+            padding-left: 1.6rem;
+            font-weight: 700;
+            transition: .3s;
+        }
+        .Sidebar ul li{
+            list-style: none;
+        }
+        .menu svg{
+            margin-left: -16px;
+        }
+        .ketersediaan{
+            border-radius: 6px;
+            border-right: 10px solid #35BEE7;
+        }
+        .ketersediaan p{
+            color: #35BEE7;
+            font-weight: 700;
+        }
+        .menu{
+            list-style: none;
+        }
+        .logo{
+            margin-left: -1rem;
+        }
+        .container{
+            width: 800px;
+            flex-direction: column;
+            background-color: #E8E8E8;
+            justify-content: start;
+        }
+        .navbar{
+            justify-content: space-around !important;
+        }
+        input{
+            width: 680px;
+            height: 52px;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border: .5px rgb(212, 212, 212) solid ;
+            flex-wrap: nowrap;
+        }
+        .Button{
+            width: 46px;
+            height: 52px;
+            margin-left: -10px !important;
+            border-top-left-radius: 0px !important;
+            border-bottom-left-radius: 0px !important;
+            margin-top: -5px !important;
+        }
+        .login{
+            width: 287px;
+            height: 52px;
+            gap: 20px;
+            justify-content: center;
+        }
+        .content{
+            justify-content: space-evenly;
+            align-items: center;
+            margin: auto;
+            width: 90%;
+        }
+            @media only screen and (max-width: 1200px){
+            .Sidebar{
+                background-color: #414141;
+                height: 100dvh;
+                padding: 20px;
+                padding-right: 20px;
+                position: fixed;
+                z-index: 999;
+            }
+            .container{
+                margin-left: 100px !important;
+            }
+            .navbar input{
+                width: 120px;
+                height: 42px;
+            }
+            .navbar .Button{
+                height: 42px;
+            }
+            .navbar{
+                margin-left: -34px;
+                gap: 40px;
+            }
+            .login{
+                width: 76px;
+                height: 42px;
+                margin-left: -100px;
+            }
+            .login p{
+                font-size: 0px !important;
+            }
+            .content{
+                flex-direction: column;
+                width: 95%;
+            }
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="background-color:#E8E8E8;">
+
+    <!-- sidebar -->
+    <div class="Sidebar d-flex flex-column flex-shrink-0 p-3">
+        <ul class="menu">
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M4 13c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0 4c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0-8c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1m0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1M7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1m-3 5c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0 4c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m0-8c.55 0 1-.45 1-1s-.45-1-1-1s-1 .45-1 1s.45 1 1 1m4 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1m0 4h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1M7 8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1" />
+                </svg>
+            </li>
+        </ul>
+        <ul class="logo">
+            <li class="d-flex"><img src="img/logo1.png" width="32px" alt=""><p class="fw-bolder fs-5 text-light gap-2">SEPARO</p></li>
+        </ul>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="home">
+                <a href="#" class="Home nav-link mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#fff" d="M6 19h3v-6h6v6h3v-9l-6-4.5L6 10zm-2 2V9l8-6l8 6v12h-7v-6h-2v6zm8-8.75"/></svg>
+                <p style="color: white; margin-left: 6px; color: #fff;" >Beranda</p>
+                </a>
+            </li>
+        <li class="ruangan">
+            <a href="#" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                        <path d="M5.978 3.212h6.938a2.775 2.775 0 0 1 2.775 2.775v14.8H3.203v-14.8a2.775 2.775 0 0 1 2.775-2.775M2.75 20.788h18.5" />
+                        <path d="M8.531 14.313h1.85A1.388 1.388 0 0 1 11.77 15.7v5.088H7.144V15.7a1.387 1.387 0 0 1 1.387-1.387m-1.859-7.4h5.55m-5.55 3.7h5.55m3.468-1.388h1.85A2.775 2.775 0 0 1 20.317 12v8.788" />
+                    </g>
+                </svg>
+            <p style="color: white; margin-left: 6px;">Daftar Ruangan</p>
+            </a>
+        </li>
+        <li class="form">
+            <a href="#" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M11 15h6v2h-6zM9 7H7v2h2zm2 6h6v-2h-6zm0-4h6V7h-6zm-2 2H7v2h2zm12-6v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2m-2 0H5v14h14zM9 15H7v2h2z" />
+                </svg>
+            <p style="color: white;  margin-left: 6px;">Form Peminjaman</p>
+            </a>
+        </li>
+        <li class="ketersediaan">
+            <a href="#" class="nav-link link-dark mb-1 mt-2" style="display: flex;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20">
+                    <path fill="#35BEE7" d="M11.916 6.083A5.002 5.002 0 0 0 2 7a5 5 0 0 0 4.083 4.916q-.076.49-.083 1.001A6.002 6.002 0 0 1 7 1a6 6 0 0 1 5.917 5q-.51.007-1 .083m-.562 4.563a.5.5 0 0 0-.708.708L12.293 13l-1.647 1.646a.5.5 0 0 0 .708.708L13 13.707l1.646 1.647a.5.5 0 0 0 .708-.708L13.707 13l1.647-1.646a.5.5 0 0 0-.708-.708L13 12.293zM13 19a6 6 0 1 0 0-12a6 6 0 0 0 0 12m0-1a5 5 0 1 1 0-10a5 5 0 0 1 0 10M9.354 5.354a.5.5 0 1 0-.708-.708L6 7.293L4.854 6.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
+                </svg>
+            <p style="color: #35BEE7; margin-left: 6px;" class="fs-5">Ketersediaan</p>
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <!-- container -->
+    <div class="container d-flex p-2">
+        <nav class= "navbar d-flex">
+            <div class="search">
+                <input class="p-1" type="text">
+                <button type="button" class="Button btn btn-primary p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+                        <path fill="#fff" d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5l-1.5 1.5l-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16A6.5 6.5 0 0 1 3 9.5A6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14S14 12 14 9.5S12 5 9.5 5" />
+                    </svg>
+                </button>
+            </div>
+            <button type="button" class="login btn btn-primary p-n2 d-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M10.3 7.7a.984.984 0 0 0 0 1.4l1.9 1.9H3c-.55 0-1 .45-1 1s.45 1 1 1h9.2l-1.9 1.9a.984.984 0 0 0 0 1.4c.39.39 1.01.39 1.4 0l3.59-3.59a.996.996 0 0 0 0-1.41L11.7 7.7a.984.984 0 0 0-1.4 0M20 19h-7c-.55 0-1 .45-1 1s.45 1 1 1h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-7c-.55 0-1 .45-1 1s.45 1 1 1h7z" />
+                </svg> 
+                <p class="fs-4">Login</p>
+            </button>
+        </nav>
+        <div class="content d-flex mt-3">
+            <table class="table">
+            <?php
+$cek_sedia = $koneksi->query("SELECT * FROM kondisi");
+$rooms = array();
+
+while ($erow = $cek_sedia->fetch_assoc()) {
+    $room_id = $erow['id_ruangan'];
+    $time = $erow['waktu'];
+    $kondisi = $erow['kondisi'];
+    $nama_ruang = $erow['nama_ruang'];
+
+    if (!isset($rooms[$room_id])) {
+        $rooms[$room_id] = array('nama_ruang' => $nama_ruang, 'terisi' => array(), 'kosong' => array());
+    }
+
+    if ($kondisi == 'TERISI') {
+        $rooms[$room_id]['terisi'][] = $time;
+    } else {
+        $rooms[$room_id]['kosong'][] = $time;
+    }
+}
+
+
+// Tabel atas: TERISI
+echo '<table class="table">';
+echo '<thead class="thead-dark">';
+echo '<tr>';
+echo '<th scope="col">ID Ruangan</th>';
+echo '<th scope="col">Nama Ruang</th>';
+echo '<th scope="col">Waktu</th>';
+echo '<th scope="col">Kondisi</th>';
+echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
+
+foreach ($rooms as $room_id => $room_data) {
+    $terisi_times = $room_data['terisi'];
+    if (!empty($terisi_times)) {
+        sort($terisi_times);
+        $terisi_time_ranges = array();
+        $start_time = $terisi_times[0];
+        $end_time = $terisi_times[0];
+        foreach ($terisi_times as $time) {
+            if ($time == $end_time || strtotime($time) - strtotime($end_time) == 3600) {
+                $end_time = $time;
+            } else {
+                $terisi_time_ranges[] = $start_time.' - '. $end_time;
+                $start_time = $time;
+                $end_time = $time;
+            }
+        }
+        $terisi_time_ranges[] = $start_time.' - '. $end_time;
+        $terisi_time_range = implode(', ', $terisi_time_ranges);
+
+        echo '<tr>';
+        echo '<th scope="row">'. $room_id. '</th>';
+        echo '<td>'. $room_data['nama_ruang']. '</td>';
+        echo '<td>'. $terisi_time_range. '</td>';
+        echo '<td>TERISI</td>';
+        echo '</tr>';
+    }
+}
+
+echo '</tbody>';
+echo '</table>';
+
+// Tabel bawah: KOSONG
+echo '            <table class="table">';
+echo '<thead class="thead-dark">';
+echo '<tr>';
+echo '<th scope="col">ID Ruangan</th>';
+echo '<th scope="col">Nama Ruang</th>';
+echo '<th scope="col">Waktu</th>';
+echo '<th scope="col">Kondisi</th>';
+echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
+
+foreach ($rooms as $room_id => $room_data) {
+    $kosong_times = $room_data['kosong'];
+    if (!empty($kosong_times)) {
+        sort($kosong_times);
+        $kosong_time_ranges = array();
+        $start_time = $kosong_times[0];
+        $end_time = $kosong_times[0];
+        foreach ($kosong_times as $time) {
+            if ($time == $end_time || strtotime($time) - strtotime($end_time) == 3600) {
+                $end_time = $time;
+            } else {
+                $kosong_time_ranges[] = $start_time.' - '. $end_time;
+                $start_time = $time;
+                $end_time = $time;
+            }
+        }
+        $kosong_time_ranges[] = $start_time.' - '. $end_time;
+        $kosong_time_range = implode(', ', $kosong_time_ranges);
+    } else {
+        $kosong_time_range = ''; // or some default value
+    }
+
+    echo '<tr>';
+    echo '<th scope="row">'. $room_id. '</th>';
+    echo '<td>'. $room_data['nama_ruang']. '</td>';
+    echo '<td>'. $kosong_time_range. '</td>';
+    echo '<td>KOSONG</td>';
+    echo '</tr>';
+}
+
+echo '</tbody>';
+echo '</table>';
+?>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var menuButton = document.querySelector(".menu");
+      
+          var sidebar = document.querySelector(".Sidebar");
+      
+          menuButton.addEventListener("click", function() {
+            var isSidebarCollapsed = sidebar.style.width === "80px";
+      
+            if (isSidebarCollapsed) {
+              sidebar.style.width = "250px";
+              var sidebarLinks = sidebar.querySelectorAll("p");
+              sidebarLinks.forEach(function(link) {
+                link.style.display = "block";
+              });
+            } 
+            else {
+              sidebar.style.width = "80px";
+              var sidebarLinks = sidebar.querySelectorAll("p");
+              sidebarLinks.forEach(function(link) {
+                link.style.display = "none";
+              });
+            }
+          });
+      
+          sidebar.style.transition = "width 0.3s";
+        });
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
