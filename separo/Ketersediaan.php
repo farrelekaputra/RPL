@@ -94,6 +94,7 @@ $pesan='';
         }
         .content{
             justify-content: space-evenly;
+            flex-direction: column;
             align-items: center;
             margin: auto;
             width: 90%;
@@ -210,7 +211,7 @@ $pesan='';
             </button>
         </nav>
         <div class="content d-flex mt-3">
-            <table class="table">
+            <table class="table d-flex justify-content-around">
             <?php
 $cek_sedia = $koneksi->query("SELECT * FROM kondisi");
 $rooms = array();
