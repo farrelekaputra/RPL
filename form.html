@@ -48,7 +48,7 @@
             margin-left: -1rem;
         }
         .container{
-            width: 800px;
+            width: 90%;
             flex-direction:column;
             background-color: #E8E8E8;
             justify-content: start;
@@ -58,7 +58,6 @@
             width: 80%;
         }
         input{
-            width: 680px;
             height: 52px;
             border-top-left-radius: 6px;
             border-bottom-left-radius: 6px;
@@ -88,28 +87,55 @@
         }
         .Selectroom{
             justify-content: start;
-            width: 600px;
             flex-direction: row;
+            margin-left: 16%;
         }
         form{
-            width: 84%;
+            width: 90% !important;
             align-items: center;
             margin: auto;
         }
         .form-select{
-            margin-left: 50%;
-        }
-        .Date{
-            margin-left: 5.4% ;
-        }
-        select{
-            width: 100%;
+            margin-left: 10%;
         }
         .bg-light{
             width: 100%;
         }
-        .form-select label{
-            margin-left: 25% !important;
+        .tanggal{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .tanggal div{
+            display: flex;
+            flex-direction: row;
+            width: 28%;
+        }
+        .tanggal label{
+            width: 100%;
+        }
+        .tanggal input{
+            width: 110%
+        }
+        .jam{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-left: 0;
+        }
+        .jam div{
+            display: flex;
+            flex-direction: row;
+            width: 25%;
+        }
+        .jam input{
+            width: 180%;
+        }
+        .jam label{
+            width: 160%;
+        }
+        button{
+            margin-left: 16% !important;
         }
             @media only screen and (max-width: 1200px){
             .Sidebar{
@@ -119,6 +145,10 @@
                 padding-right: 20px;
                 position: fixed;
                 z-index: 999;
+            }
+            .content{
+                width: 120%;
+                justify-content: center;
             }
             .container{
                 margin-left: 100px !important;
@@ -145,15 +175,12 @@
             .content{
                 flex-direction: column;
             }
-            form{
-                width: 95%;
-            }
-            .Date{
-                margin-left: .6% ;
-                width: 100%;
-            }
             .Selectroom{
                 flex-direction: column;
+                margin-left: 0;
+            }
+            .Selectroom select{
+                width: 90% !important;
             }
             .form-select{
                 margin-left: 0%;
@@ -165,11 +192,42 @@
                 margin-left: -2%;
                 width: 75% !important;
             }
+            .tanggal{
+                flex-direction: column;
+                margin-top: -5% !important;
+            }
+            .tanggal div{
+                flex-direction: column;
+            }
+            .tanggal div input{
+                width: 90% !important;
+            }
+            .dateStart{
+                width: 99% !important;
+            }
+            .dateEnd{
+                width: 99% !important;
+            }
+            .jam{
+                flex-direction: column;
+                margin-left: 0;
+                margin-top: -5% !important;
+            }
+            .timeStart{
+                width: 90% !important;
+            }
+            .timeEnd{
+                width: 90% !important;
+            }
+            button{
+            margin-left: 60% !important;
+            }
     }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Peminjaman</title>
+    <link rel="icon" type="image/x-icon" href="../img/logo1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body style="background-color:#E8E8E8;">
@@ -239,17 +297,7 @@
         <div class="content d-flex mt-3">
                 <label for="header"><h3>Form Peminjaman</h3></label>
             <form class="bg-light p-3">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Masukkan NIM</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                  <small id="emailHelp" class="form-text text-muted"></small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Masukkan Nama</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
-                </div>
-                
-                <div class="Selectroom form-group d-flex mt-3">
+                <div class="Selectroom form-group d-flex mt-3 mb-3">
                     <label for="ruang">Pilih Ruangan</label>
                     <div class="dropdown">
                       <select class="form-select" aria-label="Default select example">
@@ -268,12 +316,28 @@
                         <option label="">R 306</option>
                       </select>
                     </div>
-                  </div>
-                <div class="DateForm form-group mt-3">
-                    <label for="exampleInputPassword1">Masukkan Tanggal</label>
-                    <input type="date" class="Date">
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <div class="tanggal mb-3">
+                    <div class="dateStart form-group mt-3">
+                        <label for="exampleInputPassword1">Tanggal Mulai</label>
+                        <input type="date" class="date">
+                    </div>
+                    <div class="dateEnd form-group mt-3">
+                        <label for="exampleInputPassword1">Tanggal Selesai</label>
+                        <input type="date" class="dateend">
+                    </div>
+                </div>
+                <div class="jam">
+                    <div class="timeStart form-group mt-3">
+                        <label for="exampleInputPassword1">Jam Pinjam</label>
+                        <input type="time" class="time">
+                    </div>
+                    <div class="timeEnd form-group mt-3">
+                        <label for="exampleInputPassword1">Jam Selesai</label>
+                        <input type="time" class="timeend">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Submit</button>
               </form>
         </div>
     </div>
